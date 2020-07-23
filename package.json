@@ -1,0 +1,30 @@
+{
+  "name": "anime-quote-app",
+  "version": "1.0.0",
+  "description": "An app that shows quotes from anime",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aim4/anime-quote-app.git"
+  },
+  "keywords": [
+    "anime",
+    "quotes",
+    "app",
+    "javascript"
+  ],
+  "author": "aim4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aim4/anime-quote-app/issues"
+  },
+  "homepage": "https://github.com/aim4/anime-quote-app#readme",
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}
