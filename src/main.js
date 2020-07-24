@@ -5,7 +5,10 @@ const wrapper = new APIWrapper('');
 
 // TODO: Support multiple character search
 function getSearchParameters() {
-    return 0;
+    return {
+        text: $('#search-text').val() || '',
+        category: $('#searchCategory').val(),
+    };
 }
 
 $('#searchBtn').bind('click', () => {
