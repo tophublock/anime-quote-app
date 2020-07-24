@@ -15,8 +15,13 @@
         <div class="search-container">Search here
             <label for="search-text">Search Quotes</label>
             <input type="text" name="search-text">
-            <button>Search</button>
-            <button>Random</button>
+            <label for="category-select"></label>
+            <select name="category" id="category-select">
+                <option value="anime">Anime</option>
+                <option value="character">Character</option>
+            </select>
+            <button id="searchBtn">Search</button>
+            <button id="randomBtn">Random</button>
         </div>
         <!-- End of search container -->
         <div class="quotes-container">Quotes here

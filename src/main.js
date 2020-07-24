@@ -1,3 +1,4 @@
+// TODO: Support multiple character search
 $.ajax({
     url: 'https://anime-chan.herokuapp.com/api/quotes/random',
     type: 'GET',
