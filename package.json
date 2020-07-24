@@ -26,5 +26,9 @@
     "eslint": "^7.5.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.0",
+    "tailwindcss": "^1.5.2"
   }
 }
