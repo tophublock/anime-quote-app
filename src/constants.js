@@ -2,9 +2,6 @@
 export const API_URL = 'https://anime-chan.herokuapp.com';
 export const QUOTES_URI = 'api/quotes';
 
-// HTTP Methods
-export const GET = 'GET';
-
 // Data types
 export const JSON = 'json';
 

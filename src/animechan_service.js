@@ -10,9 +10,22 @@ export default class APIWrapper {
     // Gets 10 quotes by default
     async getQuotes() {
         try {
-            return $.ajax({
+            return $.get({
                 url: `${this.baseUrl}/${this.quotesUri}`,
-                type: CONST.GET,
+                dataType: CONST.JSON,
+                async: true,
+            });
+        } catch (e) {
+            console.error(e);
+            return null;
+        }
+    }
+
+    // Get a random quote
+    async getRandomQuote() {
+        try {
+            return $.get({
+                url: `${this.baseUrl}/${this.quotesUri}/random`,
                 dataType: CONST.JSON,
                 async: true,
             });
