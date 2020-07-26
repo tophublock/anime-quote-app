@@ -1,7 +1,8 @@
-import APIWrapper from './api_wrapper.js';
+import * as CONST from './constants.js';
+import AnimeChanService from './animechan_service.js';
 import QuoteCard from './quote.js';
 
-const wrapper = new APIWrapper('');
+const wrapper = new AnimeChanService();
 
 // TODO: Support multiple character search
 function getSearchParameters() {
@@ -16,7 +17,17 @@ $('#searchBtn').bind('click', () => {
     // get input from select box
     const searchParams = getSearchParameters();
     // call api
-    const quote = wrapper.getQuote();
+    wrapper.getQuotes().then((quotes) => {
+        for (let i = 0; i < quotes.length; i++) {
+            const card = new QuoteCard(
+                quotes[i][CONST.QUOTE_FIELD],
+                quotes[i][CONST.CHARACTER_FIELD],
+                quotes[i][CONST.ANIME_FIELD],
+            );
+            console.log(card);
+        }
+        console.log(quotes);
+    });
     // fill quote cards
     const quoteCard = new QuoteCard('', '', '');
 });
