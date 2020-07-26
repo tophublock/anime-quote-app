@@ -28,7 +28,7 @@ function convertQuotesToQuoteCards(quotes) {
 // TODO: clear quotes container when clicking search/random
 $('#searchBtn').bind('click', () => {
     const searchParams = getSearchParameters();
-    wrapper.getQuotes().then((quotes) => {
+    wrapper.getDefaultQuotes().then((quotes) => {
         // TODO: refactor into a common function
         const $quotesContainer = $('#quotes-container');
         const cards = convertQuotesToQuoteCards(quotes);

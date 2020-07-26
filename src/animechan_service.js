@@ -7,11 +7,11 @@ export default class APIWrapper {
         this.quotesUri = CONST.QUOTES_URI;
     }
 
-    // Gets 10 quotes by default
-    async getQuotes() {
+    // Gets the default quotes (order never changes, depends on API (as of 7/26/20))
+    async getDefaultQuotes(page = 1) {
         try {
             return $.get({
-                url: `${this.baseUrl}/${this.quotesUri}`,
+                url: `${this.baseUrl}/${this.quotesUri}?page=${page}`,
                 dataType: CONST.JSON,
                 async: true,
             });
