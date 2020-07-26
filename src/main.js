@@ -18,6 +18,7 @@ $('#searchBtn').bind('click', () => {
     const searchParams = getSearchParameters();
     // call api
     wrapper.getQuotes().then((quotes) => {
+        const $quotesContainer = $('#quotes-container');
         for (let i = 0; i < quotes.length; i++) {
             const card = new QuoteCard(
                 quotes[i][CONST.QUOTE_FIELD],
@@ -25,11 +26,10 @@ $('#searchBtn').bind('click', () => {
                 quotes[i][CONST.ANIME_FIELD],
             );
             console.log(card);
+            $quotesContainer.append(card.render());
         }
         console.log(quotes);
     });
-    // fill quote cards
-    const quoteCard = new QuoteCard('', '', '');
 });
 
 $.ajax({
