@@ -34,11 +34,17 @@ function addQuotesToContainer(quotes) {
 }
 
 // TODO: clear quotes container when clicking search/random
-// TODO: add button to get default quotes
-// TODO: add input to support pagination (for default)
 $('#searchBtn').bind('click', () => {
     const searchParams = getSearchParameters();
     wrapper.getDefaultQuotes().then((quotes) => {
+        addQuotesToContainer(quotes);
+    });
+});
+
+// TODO: add input to support pagination (for default)
+$('#defaultBtn').bind('click', () => {
+    const page = $('#page-number').val();
+    wrapper.getDefaultQuotes(page).then((quotes) => {
         addQuotesToContainer(quotes);
     });
 });
