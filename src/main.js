@@ -8,7 +8,7 @@ const wrapper = new AnimeChanService();
 function getSearchParameters() {
     return {
         text: $('#search-text').val() || '',
-        category: $('#searchCategory').val(),
+        category: $('#search-category').val(),
     };
 }
 
@@ -36,9 +36,21 @@ function addQuotesToContainer(quotes) {
 // TODO: clear quotes container when clicking search/random
 $('#searchBtn').bind('click', () => {
     const searchParams = getSearchParameters();
-    wrapper.getDefaultQuotes().then((quotes) => {
-        addQuotesToContainer(quotes);
-    });
+    console.log(searchParams);
+    if (searchParams.category === CONST.ANIME_CATEGORY) {
+        console.log('anime');
+        wrapper.getQuotesByAnime(searchParams.text).then((quotes) => {
+            addQuotesToContainer(quotes);
+        });
+    } else if (searchParams.category === CONST.CHARACTER_CATEGORY) {
+        wrapper.getQuotesByCharacter(searchParams.text).then((quotes) => {
+            addQuotesToContainer(quotes);
+        });
+    } else {
+        wrapper.getQuotesByAnime(CONST.ANIME_DEFAULT).then((quotes) => {
+            addQuotesToContainer(quotes);
+        });
+    }
 });
 
 // TODO: add input to support pagination (for default)

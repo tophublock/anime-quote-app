@@ -37,9 +37,10 @@ export default class APIWrapper {
 
     // Get random quotes by anime
     async getQuotesByAnime(anime) {
+        const animeParam = anime || CONST.ANIME_DEFAULT;
         try {
             return $.get({
-                url: `${this.baseUrl}/${this.quotesUri}?anime=${anime}`,
+                url: `${this.baseUrl}/${this.quotesUri}?anime=${animeParam}`,
                 dataType: CONST.JSON,
                 async: true,
             });
@@ -51,9 +52,10 @@ export default class APIWrapper {
 
     // Get random quotes by character
     async getQuotesByCharacter(character) {
+        const charParam = character || CONST.CHARACTER_DEFAULT;
         try {
             return $.get({
-                url: `${this.baseUrl}/${this.quotesUri}?char=${character}`,
+                url: `${this.baseUrl}/${this.quotesUri}?char=${charParam}`,
                 dataType: CONST.JSON,
                 async: true,
             });
