@@ -38,13 +38,10 @@ function clearQuotesContainer() {
     $('#quotes-container').empty();
 }
 
-// TODO: clear quotes container when clicking search/random
-$('#searchBtn').bind('click', () => {
+function onClickSearchBtn() {
     clearQuotesContainer();
     const searchParams = getSearchParameters();
-    console.log(searchParams);
     if (searchParams.category === CONST.ANIME_CATEGORY) {
-        console.log('anime');
         wrapper.getQuotesByAnime(searchParams.text).then((quotes) => {
             addQuotesToContainer(quotes);
         });
@@ -57,7 +54,15 @@ $('#searchBtn').bind('click', () => {
             addQuotesToContainer(quotes);
         });
     }
+}
+
+$(document).on('keypress', (e) => {
+    if (e.keyCode === 13) {
+        onClickSearchBtn();
+    }
 });
+
+$('#searchBtn').bind('click', onClickSearchBtn);
 
 // TODO: add input to support pagination (for default)
 $('#defaultBtn').bind('click', () => {
