@@ -25,25 +25,26 @@ function convertQuotesToQuoteCards(quotes) {
     return cards;
 }
 
+function addQuotesToContainer(quotes) {
+    const $quotesContainer = $('#quotes-container');
+    const cards = convertQuotesToQuoteCards(quotes);
+    cards.forEach((card) => {
+        $quotesContainer.append(card.render());
+    });
+}
+
 // TODO: clear quotes container when clicking search/random
+// TODO: add button to get default quotes
+// TODO: add input to support pagination (for default)
 $('#searchBtn').bind('click', () => {
     const searchParams = getSearchParameters();
     wrapper.getDefaultQuotes().then((quotes) => {
-        // TODO: refactor into a common function
-        const $quotesContainer = $('#quotes-container');
-        const cards = convertQuotesToQuoteCards(quotes);
-        cards.forEach((card) => {
-            $quotesContainer.append(card.render());
-        });
+        addQuotesToContainer(quotes);
     });
 });
 
 $('#randomBtn').bind('click', () => {
     wrapper.getRandomQuote().then((quotes) => {
-        const $quotesContainer = $('#quotes-container');
-        const cards = convertQuotesToQuoteCards(quotes);
-        cards.forEach((card) => {
-            $quotesContainer.append(card.render());
-        });
+        addQuotesToContainer(quotes);
     });
 });

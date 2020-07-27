@@ -34,4 +34,32 @@ export default class APIWrapper {
             return null;
         }
     }
+
+    // Get random quotes by anime
+    async getQuotesByAnime(anime) {
+        try {
+            return $.get({
+                url: `${this.baseUrl}/${this.quotesUri}?anime=${anime}`,
+                dataType: CONST.JSON,
+                async: true,
+            });
+        } catch (e) {
+            console.error(e);
+            return null;
+        }
+    }
+
+    // Get random quotes by character
+    async getQuotesByCharacter(character) {
+        try {
+            return $.get({
+                url: `${this.baseUrl}/${this.quotesUri}?char=${character}`,
+                dataType: CONST.JSON,
+                async: true,
+            });
+        } catch (e) {
+            console.error(e);
+            return null;
+        }
+    }
 }
