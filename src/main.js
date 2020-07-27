@@ -33,8 +33,14 @@ function addQuotesToContainer(quotes) {
     });
 }
 
+// TODO: fix size of quotes container
+function clearQuotesContainer() {
+    $('#quotes-container').empty();
+}
+
 // TODO: clear quotes container when clicking search/random
 $('#searchBtn').bind('click', () => {
+    clearQuotesContainer();
     const searchParams = getSearchParameters();
     console.log(searchParams);
     if (searchParams.category === CONST.ANIME_CATEGORY) {
@@ -55,6 +61,7 @@ $('#searchBtn').bind('click', () => {
 
 // TODO: add input to support pagination (for default)
 $('#defaultBtn').bind('click', () => {
+    clearQuotesContainer();
     const page = $('#page-number').val();
     wrapper.getDefaultQuotes(page).then((quotes) => {
         addQuotesToContainer(quotes);
@@ -62,6 +69,7 @@ $('#defaultBtn').bind('click', () => {
 });
 
 $('#randomBtn').bind('click', () => {
+    clearQuotesContainer();
     wrapper.getRandomQuote().then((quotes) => {
         addQuotesToContainer(quotes);
     });
