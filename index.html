@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime Quotes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/output.css">
 </head>
 <body>
@@ -14,24 +15,26 @@
     <!-- End of header -->
     <main>
         <div class="search-container">
-            <h2>Search here</h2>
-            <label for="search-text">Search Quotes</label>
-            <input type="text" name="search-text" id="search-text">
-            <label for="search-category"></label>
-            <select name="category" id="search-category">
-                <option value="anime">Anime</option>
-                <option value="character">Character</option>
-            </select>
-            <button id="searchBtn">Search</button>
-            <button id="randomBtn">Random</button>
-            <button id="defaultBtn">Default</button>
-            <label for="page-number">Page #: </label>
-            <input type="number" name="page-number" id="page-number" min="1" value="1">
+            <div class="search-container-top">
+                <input type="text" name="search-text" id="search-text">
+                <label for="search-category"></label>
+                <select name="category" id="search-category">
+                    <option value="anime">Anime</option>
+                    <option value="character">Character</option>
+                </select>
+            <button class="p-1 rounded" id="searchBtn">Search</button>
+            </div>
+            <!-- End of search container top -->
+            <div class="search-container-bottom">
+                <button class="p-1 m-1 rounded" id="randomBtn">Random</button>
+                <button class="p-1 m-1 rounded" id="defaultBtn">Default</button>
+                <label class="m-1" for="page-number">Page #</label>
+                <input type="number" name="page-number" id="page-number" min="1" value="1">
+            </div>
+            <!-- End of search container bottom -->
         </div>
         <!-- End of search container -->
         <div class="quotes-container" id="quotes-container">
-            <!-- <div class="quote-card">Quote example</div> -->
-            <!-- <p id="json-result"></p> -->
         </div>
         <!-- End of quotes container -->
     </main>

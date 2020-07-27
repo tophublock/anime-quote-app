@@ -7,6 +7,7 @@ export default class Quote {
         this._source = source;
     }
 
+    // TODO: limit card size and add scrolling if quote is long
     render() {
         const $card = $('<div>', { class: CONST.QUOTE_CARD_CLASS });
 
