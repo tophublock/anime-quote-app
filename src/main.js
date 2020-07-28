@@ -26,11 +26,9 @@ function convertQuotesToQuoteCards(quotes) {
 }
 
 function addQuotesToContainer(quotes) {
-    console.log(quotes);
     const $quotesContainer = $('#quotes-container');
     const cards = convertQuotesToQuoteCards(quotes);
     cards.forEach((card) => {
-        console.log(card);
         $quotesContainer.append(card.renderJquery());
     });
 }

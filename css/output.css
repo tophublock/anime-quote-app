@@ -636,12 +636,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
 }
 
 header {
   margin: 2em;
-  border: 2px solid black;
 }
 
 main {
@@ -653,12 +651,47 @@ footer {
   margin: 2em;
 }
 
+/* TODO: move to backgrounds */
+
 button {
-  border: 2px solid blue;
+  width: 6rem;
+  border: 3px solid hsla(230, 100%, 88%, 1);
+  background-image: linear-gradient(to right, hsla(230, 100%, 88%, 1) 50%, white 50%);
+  background-size: 220% 100%;
+  background-position: 100% 0;
+  transition: 0.25s background-position;
+}
+
+button:hover {
+  color: white;
+  background-position: 5%;
+}
+
+.copy-btn {
+  width: 5rem;
+  margin: 1rem;
+  color: hsla(103, 61%, 62%, 1);
+  border: 3px solid hsla(103, 61%, 62%, 1);
+  background-image: linear-gradient(to right, hsla(103, 61%, 62%, 1) 50%, white 50%);
 }
 
 input {
   border: 2px solid pink;
+}
+
+a {
+  display: block;
+  font-weight: bold;
+  /* Gradient with hard lines */
+  background-image: linear-gradient(to bottom, white 70%, transparent 70%),
+    linear-gradient(to right, hsla(116, 100%, 84%, 1) 33%, hsla(181, 100%, 88%, 1) 33%, hsla(181, 100%, 88%, 1) 66%, hsla(230, 100%, 88%, 1) 66%);
+  background-size: 300% 100%;
+  background-position: 100% 0;
+  transition: 1s background-position;
+}
+
+a:hover {
+  background-position: 0%;
 }
 
 .search-container {
@@ -707,7 +740,7 @@ input {
 
 body {
   text-align: center;
-  /* font-size: 1.25rem; */
+  font-size: 1.25rem;
 }
 
 header {
@@ -724,6 +757,10 @@ header h3 {
   font-weight: 300;
 }
 
+.quote-card {
+  font-size: 1rem;
+}
+
 /* Borders and background */
 
 .search-container {
@@ -733,6 +770,7 @@ header h3 {
 .quote-card {
   min-width: 150px;
   min-height: 150px;
+  max-width: 300px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -793,9 +831,26 @@ header h3 {
   text-align: center;
   /* Border/background */
   background-color: hsla(191, 53%, 92%, 1);
-  border: 3px solid hsla(260, 56%, 73%, 1);
+  /* border: 3px solid hsla(260, 56%, 73%, 1); */
   border-radius: 5%;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-front div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.card-back div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-front {

@@ -32,7 +32,8 @@ export default class QuoteCard {
         const $source = $('<p>', { class: CONST.SOURCE_CLASS });
         $source.text(this._source);
 
-        const $copy = $(`<button> ${CONST.COPY} </button>`);
+        const $copy = $(`<button> ${CONST.COPY} </button>`, { class: CONST.COPY_CLASS });
+        $copy.addClass(CONST.COPY_CLASS);
         $copy.bind('click', (e) => {
             e.stopPropagation();
             // Copy text
