@@ -23,3 +23,15 @@ export const CHARACTER_CATEGORY = 'character';
 // Default
 export const ANIME_DEFAULT = 'ao no exorcist';
 export const CHARACTER_DEFAULT = 'Edward Elric';
+
+// Card
+export const FRONT = 'front';
+
+// Classes
+export const CARD_FRONT = 'card-front';
+export const CARD_BACK = 'card-back';
+export const CARD = 'card';
+export const CARD_FLIP = 'card-flip';
+
+// Strings
+export const COPY = 'copy';

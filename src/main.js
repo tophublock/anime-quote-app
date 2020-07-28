@@ -26,10 +26,12 @@ function convertQuotesToQuoteCards(quotes) {
 }
 
 function addQuotesToContainer(quotes) {
+    console.log(quotes);
     const $quotesContainer = $('#quotes-container');
     const cards = convertQuotesToQuoteCards(quotes);
     cards.forEach((card) => {
-        $quotesContainer.append(card.render());
+        console.log(card);
+        $quotesContainer.append(card.renderJquery());
     });
 }
 
@@ -74,6 +76,7 @@ $('#defaultBtn').bind('click', () => {
 });
 
 $('#randomBtn').bind('click', () => {
+    console.log('random clicked');
     clearQuotesContainer();
     wrapper.getRandomQuote().then((quotes) => {
         addQuotesToContainer(quotes);
