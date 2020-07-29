@@ -39,6 +39,7 @@ function clearQuotesContainer() {
 }
 
 function onClickSearchBtn() {
+    console.log('search');
     clearQuotesContainer();
     const searchParams = getSearchParameters();
     if (searchParams.category === CONST.ANIME_CATEGORY) {
@@ -62,10 +63,10 @@ $(document).on('keypress', (e) => {
     }
 });
 
-$('#searchBtn').bind('click', onClickSearchBtn);
+$('#search-btn').bind('click', onClickSearchBtn);
 
 // TODO: add input to support pagination (for default)
-$('#defaultBtn').bind('click', () => {
+$('#default-btn').bind('click', () => {
     clearQuotesContainer();
     const page = $('#page-number').val();
     wrapper.getDefaultQuotes(page).then((quotes) => {
@@ -73,10 +74,20 @@ $('#defaultBtn').bind('click', () => {
     });
 });
 
-$('#randomBtn').bind('click', () => {
+$('#random-btn').bind('click', () => {
     console.log('random clicked');
     clearQuotesContainer();
     wrapper.getRandomQuote().then((quotes) => {
         addQuotesToContainer(quotes);
     });
 });
+
+// $('#search-text').bind('focus', () => {
+//     if ($(this).val() === '') {
+//         const url = './../assets/search.svg';
+//         $('#search-btn').css('background-image', `url('${url}')`);
+//     } else {
+//         const url = './assets/x-circle.svg';
+//         $('#search-btn').css('background-image', `url('${url}')`);
+//     }
+// });

@@ -66,12 +66,26 @@ a:hover {
 }
 
 .search-container {
-    margin: 1em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    margin-top: 1em;
     margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .search-container div {
-    margin: 1em;
+    margin: 0.5em;
+}
+
+.search-container-top {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .search-container-bottom {
@@ -98,10 +112,6 @@ a:hover {
     padding: 0.25em;
 }
 
-#search-text {
-    width: 20em;
-}
-
 #page-number {
     width: 3em;
 }
@@ -124,6 +134,11 @@ header h1 {
 header h3 {
     font-size: 1.5rem;
     font-weight: 300;
+}
+
+input {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 }
 
 .quote-card {
@@ -156,6 +171,51 @@ header h3 {
 }
 
 /* Media queries */
+
+
+/* Search bar */
+.search-bar {
+    width: 30rem;
+    height: 3rem;
+    margin: 0 0.75rem 0 0;
+    padding: 0.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    background: hsla(195, 89%, 48%, 1);
+    border-radius: 10px;
+    box-shadow:  0 0 6px hsla(207, 73%, 46%, 0.5);
+}
+
+.search-bar input {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 0.5rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.search-bar button {
+    margin: 0;
+    padding: 0;
+    width: 30px;
+    height: 24px;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background-image: url("./../assets/search.svg");
+    background-size: 24px auto;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.25s;
+}
+
+.search-bar button:hover {
+    background-image: url("./../assets/arrow-left.svg");
+    transform: rotateZ(180deg);
+}
 
 /* Card */
 

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anime Quotes</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./css/output.css">
 </head>
 <body>
@@ -16,18 +17,20 @@
     <main>
         <div class="search-container">
             <div class="search-container-top">
-                <input type="text" name="search-text" id="search-text">
+                <span class="search-bar">
+                    <input type="text" name="search-text" id="search-text">
+                    <button class="p-1 rounded" id="search-btn"></button>
+                </span>
                 <label for="search-category"></label>
                 <select name="category" id="search-category">
                     <option value="anime">Anime</option>
                     <option value="character">Character</option>
                 </select>
-            <button class="p-1 rounded" id="searchBtn">Search</button>
             </div>
             <!-- End of search container top -->
             <div class="search-container-bottom">
-                <button class="p-1 m-1 rounded" id="randomBtn">Random</button>
-                <button class="p-1 m-1 rounded" id="defaultBtn">Default</button>
+                <button class="p-1 m-1 rounded" id="random-btn">Random</button>
+                <button class="p-1 m-1 rounded" id="default-btn">Default</button>
                 <label class="m-1" for="page-number">Page #</label>
                 <input type="number" name="page-number" id="page-number" min="1" value="1">
             </div>
