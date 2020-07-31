@@ -1,12 +1,16 @@
-// https://codepen.io/wallaceerick/pen/ctsCz
+// https://codepen.io/wallaceerick/pen/ctsCz; http://jsfiddle.net/BB3JK/47/
 
 export default function styleSelect($select) {
     const $options = $select.children('option');
+
+    // Hide original select element, wrap in div
     $select.addClass('select-hidden');
-    const selectClass = 'select';
-    $select.wrap(`<div class="${selectClass}"></div>`);
+    $select.wrap('<div class="select"></div>');
+    // const $styledSelect = $('<div class="select-styled"></div>');
+    // $select.after($styledSelect);
     $select.after('<div class="select-styled"></div>');
 
+    // Create new styled select element
     const $styledSelect = $select.next('div.select-styled');
     $styledSelect.text($options.eq(0).text());
 

@@ -1,6 +1,7 @@
 import * as CONST from './constants.js';
 import AnimeChanService from './animechan_service.js';
 import QuoteCard from './quote.js';
+import styleInputNumber from './input_number.js';
 import styleSelect from './select.js';
 
 const wrapper = new AnimeChanService();
@@ -85,3 +86,8 @@ $('#random-btn').bind('click', () => {
 $('select').each((idx, el) => {
     styleSelect($(el));
 });
+
+$('input[type="number"]').each((idx, el) => {
+    console.log($(el));
+    styleInputNumber($(el));
+})
