@@ -1,6 +1,7 @@
 import * as CONST from './constants.js';
 import AnimeChanService from './animechan_service.js';
 import QuoteCard from './quote.js';
+import styleSelect from './select.js';
 
 const wrapper = new AnimeChanService();
 
@@ -75,19 +76,12 @@ $('#default-btn').bind('click', () => {
 });
 
 $('#random-btn').bind('click', () => {
-    console.log('random clicked');
     clearQuotesContainer();
     wrapper.getRandomQuote().then((quotes) => {
         addQuotesToContainer(quotes);
     });
 });
 
-// $('#search-text').bind('focus', () => {
-//     if ($(this).val() === '') {
-//         const url = './../assets/search.svg';
-//         $('#search-btn').css('background-image', `url('${url}')`);
-//     } else {
-//         const url = './assets/x-circle.svg';
-//         $('#search-btn').css('background-image', `url('${url}')`);
-//     }
-// });
+$('select').each((idx, el) => {
+    styleSelect($(el));
+});
