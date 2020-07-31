@@ -637,6 +637,10 @@ video {
   --input-bg-dark-color: hsla(188, 59%, 57%, 1);
   --input-border-color: hsla(188, 77%, 76%, 1);
   --input-accent-color: hsla(257, 77%, 76%, 1);
+  --quote-font-color: hsla(202, 0%, 19%, 1);
+  --copy-border-color: hsla(144, 45%, 57%, 1);
+  --card-bg-color: hsla(191, 20%, 99%, 0.8);
+  /* --card-bg-color: hsla(191, 20%, 95%, 0.5); */
 }
 
 /* Spacing/Placement */
@@ -676,16 +680,43 @@ button:hover {
   background-position: 5%;
 }
 
+#default-btn {
+  margin-right: 1rem;
+}
+
 .copy-btn {
   width: 5rem;
   margin: 1rem;
-  color: hsla(103, 61%, 62%, 1);
-  border: 3px solid hsla(103, 61%, 62%, 1);
-  background-image: linear-gradient(to right, hsla(103, 61%, 62%, 1) 50%, white 50%);
+  color: var(--copy-border-color);
+  /* color: hsla(103, 61%, 62%, 1); */
+  border: 3px solid var(--copy-border-color);
+  background-image: linear-gradient(to right, var(--copy-border-color) 50%, white 50%);
 }
 
 input {
   border: 2px solid pink;
+}
+
+input[type=number] {
+  width: 3rem;
+  -moz-appearance: textfield;
+}
+
+input[type=number]::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-color: var(--input-accent-color) transparent transparent transparent;
+  position: absolute;
+  top: 0.75rem;
+  right: 0.5rem;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Cool link effect */
@@ -726,9 +757,13 @@ a:hover {
   width: 50%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding-right: 5rem;
+  /* padding-right: 7rem; */
+}
+
+.search-container-bottom {
+  padding-left: 20rem;
 }
 
 .quotes-container {
@@ -749,10 +784,6 @@ a:hover {
 
 .quote-card {
   padding: 0.25em;
-}
-
-#page-number {
-  width: 3em;
 }
 
 /* Text */
@@ -791,7 +822,7 @@ main {
   background-image: url("./../assets/background.png");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% 100%;
+  background-size: 100% 120%;
 }
 
 .search-container {
@@ -799,9 +830,9 @@ main {
   background-color: hsla(175, 100%, 100%, 0.7);
 }
 
-.quotes-container {
-  border: 4px solid paleturquoise;
-}
+/* .quotes-container {
+    border: 4px solid paleturquoise;
+} */
 
 .quote-card {
   min-width: 250px;
@@ -925,7 +956,7 @@ main {
 }
 
 .select-styled:active, .select-styled.active {
-  backgorund-color: var(--input-bg-dark-color);
+  background-color: var(--input-bg-dark-color);
 }
 
 /* Flip mock chevron/triangle */
@@ -946,6 +977,7 @@ main {
   padding: 0 0;
   list-style: none;
   background-color: var(--input-bg-dark-color);
+  transition: all 0.25 ease;
 }
 
 .select-options li {
@@ -1002,13 +1034,12 @@ main {
   color: black;
   text-align: center;
   /* Border/background */
-  background-color: hsla(191, 53%, 92%, 1);
-  /* border: 3px solid hsla(260, 56%, 73%, 1); */
+  background-color: var(--card-bg-color);
   border-radius: 5%;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 5px 10px 5px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-.card-front div {
+.card-front div, .card-back div {
   width: 100%;
   height: 100%;
   display: flex;
@@ -1017,12 +1048,21 @@ main {
 }
 
 .card-back div {
-  width: 100%;
-  height: 100%;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.card-front p, .card-back p {
+  color: var(--quote-font-color);
+  padding: 1rem;
+}
+
+.card-back p {
+  padding: 0.5rem;
+}
+
+p.source {
+  font-style: italic;
 }
 
 .card-front {
@@ -1037,7 +1077,7 @@ main {
   -ms-transform: rotateY(180deg);
 }
 
-/* Scroll bar */
+/* Scroll bar for card */
 
 .card-front, .card-back {
   /* Scroll bar */
