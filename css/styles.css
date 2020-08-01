@@ -19,6 +19,7 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -108,6 +109,7 @@ a:hover {
 
 .search-container-top, .search-container-bottom {
     width: 50%;
+    padding-left: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -204,7 +206,7 @@ input {
 }
 
 /* Media queries */
-
+/* TODO add media queries here */
 
 /* Search bar */
 .search-bar {
