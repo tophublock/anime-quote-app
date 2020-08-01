@@ -38,14 +38,6 @@ export default function styleSelect($select) {
         $this.toggleClass('active').next('ul.select-options').toggle();
     });
 
-    // $styledSelect.click(function (e) {
-    //     e.stopPropagation();
-    //     $('div.select-styled.active').each(function () {
-    //         $(this).removeClass('active').next('ul.select-options').hide();
-    //     });
-    //     $(this).toggleClass('active').next('ul.select-options').toggle();
-    // });
-
     $listItems.click((e) => {
         e.stopPropagation();
         const $this = $(e.currentTarget);
@@ -53,13 +45,6 @@ export default function styleSelect($select) {
         $select.val($this.attr('rel'));
         $list.hide();
     });
-
-    // $listItems.click(function(e) {
-    //     e.stopPropagation();
-    //     $styledSelect.text($(this).text()).removeClass('active');
-    //     $select.val($(this).attr('rel'));
-    //     $list.hide();
-    // });
 
     $(document).click(() => {
         $styledSelect.removeClass('active');

@@ -12,7 +12,6 @@
     --quote-font-color: hsla(202, 0%, 19%, 1);
     --copy-border-color: hsla(144, 45%, 57%, 1);
     --card-bg-color: hsla(191, 20%, 99%, 0.8);
-    /* --card-bg-color: hsla(191, 20%, 95%, 0.5); */
 }
 
 /* Spacing/Placement */
@@ -39,7 +38,7 @@ footer {
 /* TODO: move to backgrounds */
 button {
     width: 6rem;
-    border: 3px solid hsla(230, 100%, 88%, 1);
+    border: 4px solid hsla(230, 100%, 88%, 1);
     background-image: linear-gradient(to right, hsla(230, 100%, 88%, 1) 50%, white 50%);
     background-size: 220% 100%;
     background-position: 100% 0;
@@ -52,7 +51,7 @@ button:hover {
 }
 
 #default-btn {
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 .copy-btn {
@@ -64,24 +63,9 @@ button:hover {
     background-image: linear-gradient(to right, var(--copy-border-color) 50%, white 50%);
 }
 
-input {
-    border: 2px solid pink;
-}
-
 input[type=number] {
     width: 3rem;
     -moz-appearance: textfield;
-}
-
-input[type=number]:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-color: var(--input-accent-color) transparent transparent transparent;
-    position: absolute;
-    top: 0.75rem;
-    right: 0.5rem;
 }
 
 input[type=number]::-webkit-outer-spin-button,
@@ -128,11 +112,10 @@ a:hover {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* padding-right: 7rem; */
 }
 
 .search-container-bottom {
-    padding-left: 20rem;
+    padding-left: 18rem;
 }
 
 .quotes-container {
@@ -191,27 +174,26 @@ main {
     background-size: 100% 120%;
 }
 
-.search-container {
-    /* background-color: hsla(307, 100%, 92%,Ei 0.5); */
-    background-color: hsla(175, 100%, 100%, 0.7);
+input {
+    border: 3px solid var(--input-bg-color);
+    border-radius: 10px;
+    box-shadow:  0 0 3px hsla(207, 73%, 46%, 0.5);
 }
 
-/* .quotes-container {
-    border: 4px solid paleturquoise;
-} */
+.search-container {
+    background-color: hsla(175, 100%, 100%, 0.7);
+}
 
 .quote-card {
     min-width: 250px;
     min-height: 250px;
     font-size: 1.15rem;
-    /* max-width: 400px; */
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
-    /* border: 2px dashed green; */
     border-radius: 5%;
     perspective: 1000px;
 }
@@ -234,9 +216,8 @@ main {
     display: flex;
     flex-direction: row;
     background-color: var(--input-border-color);
-    /* background: hsla(195, 89%, 48%, 1); */
     border-radius: 10px;
-    box-shadow:  0 0 6px hsla(207, 73%, 46%, 0.5);
+    box-shadow:  0 0 3px hsla(207, 73%, 46%, 0.5);
 }
 
 .search-bar input {
@@ -345,7 +326,6 @@ main {
 
 .select-options li {
     margin: 0 0;
-    /* padding: 0 10px; */
     padding: 12px 0;
     text-indent: 15px;
     border-top: 1px solid var(--input-bg-color);
@@ -353,7 +333,6 @@ main {
 
 .select-options li:hover {
     color: white;
-    /* color: var(--input-bg-color); */
     background: var(--input-accent-color);
 }
 
@@ -363,7 +342,6 @@ main {
 .card {
     width: 100%;
     height: 100%;
-    /* margin: auto auto; */
     position: absolute;
     text-align: center;
     color: black;
@@ -451,4 +429,44 @@ p.source {
 
 .card-front::-webkit-scrollbar-thumb, .card-back::-webkit-scrollbar-thumb {
     border-radius: 20px;
+}
+
+/* Input Number */
+.input-number {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 2px solid black; */
+}
+
+.input-number-plus-btn, .input-number-minus-btn {
+    width: 28px;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-position: center;
+}
+
+.input-number-plus-btn {
+    margin-left: 2px;
+    background-image: url("./../assets/plus-circle.svg");
+}
+
+.input-number-minus-btn {
+    margin-right: 2px;
+    background-image: url("./../assets/minus-circle.svg");
+}
+
+.input-number-plus-btn:hover, .input-number-minus-btn:hover {
+    border: none;
+    background-position: center;
+}
+
+.input-number-plus-btn:hover {
+    background-image: url("./../assets/plus-circle-filled.svg");
+}
+
+.input-number-minus-btn:hover {
+    background-image: url("./../assets/mins-circle-filled.svg");
 }
