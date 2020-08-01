@@ -634,7 +634,8 @@ video {
 
 :root {
   --input-bg-color: hsla(188, 77%, 76%, 1);
-  --input-bg-dark-color: hsla(188, 59%, 57%, 1);
+  /* --input-bg-dark-color: hsla(144, 45%, 57%, 1); */
+  --input-bg-dark-color: hsla(188, 27%, 93%, 1);
   --input-border-color: hsla(188, 77%, 76%, 1);
   --input-accent-color: hsla(257, 77%, 76%, 1);
   --quote-font-color: hsla(202, 0%, 19%, 1);
@@ -694,6 +695,7 @@ button:hover {
 }
 
 input[type=number] {
+  text-indent: 3px;
   width: 3rem;
   -moz-appearance: textfield;
 }
@@ -910,6 +912,7 @@ input {
   font-size: 1.25rem;
   text-align: left;
   border-radius: 10px;
+  box-shadow:  0 0 3px hsla(207, 73%, 46%, 0.5);
 }
 
 .select-styled {
@@ -969,7 +972,7 @@ input {
   margin: 0 0;
   padding: 12px 0;
   text-indent: 15px;
-  border-top: 1px solid var(--input-bg-color);
+  border-top: 2px solid var(--input-bg-color);
 }
 
 .select-options li:hover {

@@ -5,6 +5,7 @@ import styleInputNumber from './input_number.js';
 import styleSelect from './select.js';
 
 const wrapper = new AnimeChanService();
+const waitMs = 250;
 
 // TODO: Support multiple character search
 function getSearchParameters() {
@@ -40,8 +41,8 @@ function clearQuotesContainer() {
     $('#quotes-container').empty();
 }
 
-function onClickSearchBtn() {
-    console.log('search');
+function onClickSearchBtn(e) {
+    $(e.currentTarget).prop('disabled', true);
     clearQuotesContainer();
     const searchParams = getSearchParameters();
     if (searchParams.category === CONST.ANIME_CATEGORY) {
@@ -57,6 +58,9 @@ function onClickSearchBtn() {
             addQuotesToContainer(quotes);
         });
     }
+    setTimeout(() => {
+        $(e.currentTarget).prop('disabled', false);
+    }, waitMs);
 }
 
 $(document).on('keypress', (e) => {
@@ -68,19 +72,27 @@ $(document).on('keypress', (e) => {
 $('#search-btn').bind('click', onClickSearchBtn);
 
 // TODO: add input to support pagination (for default)
-$('#default-btn').bind('click', () => {
+$('#default-btn').bind('click', (e) => {
+    $(e.currentTarget).prop('disabled', true);
     clearQuotesContainer();
     const page = $('#page-number').val();
     wrapper.getDefaultQuotes(page).then((quotes) => {
         addQuotesToContainer(quotes);
     });
+    setTimeout(() => {
+        $(e.currentTarget).prop('disabled', false);
+    }, waitMs);
 });
 
-$('#random-btn').bind('click', () => {
+$('#random-btn').bind('click', (e) => {
+    $(e.currentTarget).prop('disabled', true);
     clearQuotesContainer();
     wrapper.getRandomQuote().then((quotes) => {
         addQuotesToContainer(quotes);
     });
+    setTimeout(() => {
+        $(e.currentTarget).prop('disabled', false);
+    }, waitMs);
 });
 
 $('select').each((idx, el) => {
@@ -88,6 +100,5 @@ $('select').each((idx, el) => {
 });
 
 $('input[type="number"]').each((idx, el) => {
-    console.log($(el));
     styleInputNumber($(el));
 })
