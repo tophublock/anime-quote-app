@@ -28,8 +28,9 @@ function convertQuotesToQuoteCards(quotes) {
     return cards;
 }
 
-function addQuotesToContainer(quotes) {
+function addQuotesToContainer(quotesResp) {
     const $quotesContainer = $('#quotes-container');
+    const quotes = quotesResp.data;
     const cards = convertQuotesToQuoteCards(quotes);
     cards.forEach((card) => {
         $quotesContainer.append(card.renderJquery());
@@ -46,16 +47,16 @@ function onClickSearchBtn(e) {
     clearQuotesContainer();
     const searchParams = getSearchParameters();
     if (searchParams.category === CONST.ANIME_CATEGORY) {
-        wrapper.getQuotesByAnime(searchParams.text).then((quotes) => {
-            addQuotesToContainer(quotes);
+        wrapper.getQuotesByAnime(searchParams.text).then((resp) => {
+            addQuotesToContainer(resp);
         });
     } else if (searchParams.category === CONST.CHARACTER_CATEGORY) {
-        wrapper.getQuotesByCharacter(searchParams.text).then((quotes) => {
-            addQuotesToContainer(quotes);
+        wrapper.getQuotesByCharacter(searchParams.text).then((resp) => {
+            addQuotesToContainer(resp);
         });
     } else {
-        wrapper.getQuotesByAnime(CONST.ANIME_DEFAULT).then((quotes) => {
-            addQuotesToContainer(quotes);
+        wrapper.getQuotesByAnime(CONST.ANIME_DEFAULT).then((resp) => {
+            addQuotesToContainer(resp);
         });
     }
     setTimeout(() => {
@@ -73,12 +74,11 @@ $('#search-btn').bind('click', onClickSearchBtn);
 
 // TODO: add input to support pagination (for default)
 $('#default-btn').bind('click', (e) => {
-    console.log('default clicked');
     $(e.currentTarget).prop('disabled', true);
     clearQuotesContainer();
     const page = $('#page-number').val();
-    wrapper.getDefaultQuotes(page).then((quotes) => {
-        addQuotesToContainer(quotes);
+    wrapper.getDefaultQuotes(page).then((resp) => {
+        addQuotesToContainer(resp);
     });
     setTimeout(() => {
         $(e.currentTarget).prop('disabled', false);
@@ -88,9 +88,9 @@ $('#default-btn').bind('click', (e) => {
 $('#random-btn').bind('click', (e) => {
     $(e.currentTarget).prop('disabled', true);
     clearQuotesContainer();
-    wrapper.getRandomQuote().then((quotes) => {
-        addQuotesToContainer(quotes);
-    });
+    wrapper.getRandomQuote().then((resp) => {
+        addQuotesToContainer(resp);
+    })
     setTimeout(() => {
         $(e.currentTarget).prop('disabled', false);
     }, waitMs);

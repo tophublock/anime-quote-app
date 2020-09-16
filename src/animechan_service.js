@@ -9,8 +9,6 @@ export default class APIWrapper {
 
     // Gets the default quotes (order never changes, depends on API (as of 7/26/20))
     async getDefaultQuotes(page = 1) {
-        const apiurl = `${this.baseUrl}/${this.quotesUri}?page=${page}`;
-        console.log(apiurl);
         try {
             return $.get({
                 url: `${this.baseUrl}/${this.quotesUri}?page=${page}`,
