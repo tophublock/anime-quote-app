@@ -1,5 +1,5 @@
 // API
-export const API_URL = 'https://anime-chan.herokuapp.com';
+export const API_URL = 'https://animechanapi.xyz';
 export const QUOTES_URI = 'api/quotes';
 
 // Data types
