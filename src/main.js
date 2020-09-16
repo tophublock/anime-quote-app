@@ -90,7 +90,7 @@ $('#random-btn').bind('click', (e) => {
     clearQuotesContainer();
     wrapper.getRandomQuote().then((resp) => {
         addQuotesToContainer(resp);
-    })
+    });
     setTimeout(() => {
         $(e.currentTarget).prop('disabled', false);
     }, waitMs);
@@ -102,4 +102,4 @@ $('select').each((idx, el) => {
 
 $('input[type="number"]').each((idx, el) => {
     styleInputNumber($(el));
-})
+});
