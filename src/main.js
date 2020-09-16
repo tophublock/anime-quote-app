@@ -73,6 +73,7 @@ $('#search-btn').bind('click', onClickSearchBtn);
 
 // TODO: add input to support pagination (for default)
 $('#default-btn').bind('click', (e) => {
+    console.log('default clicked');
     $(e.currentTarget).prop('disabled', true);
     clearQuotesContainer();
     const page = $('#page-number').val();
